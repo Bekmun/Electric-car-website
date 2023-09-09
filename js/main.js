@@ -1,3 +1,11 @@
+/*=============== LOADER ===============*/
+window.onload = function() {
+	const load = document.getElementById('preloader')
+	setTimeout(() => {
+		load.style.display = 'none'
+	}, 1000)
+}
+
 /*=============== SHOW MENU ===============*/
 const navMenu = document.querySelector('.nav__menu'),
 	navToggle = document.querySelector('.nav__toggle'),
@@ -61,27 +69,28 @@ let mixerFeatured = mixitup('.featured__content', {
 		target: '.featured__card',
 	},
 	animation: {
-		duration: 300
-	}
+		duration: 300,
+	},
 })
 
 /* Link active featured */
 const linkFeatured = document.querySelectorAll('.featured__item')
 function activeFeatured() {
-	linkFeatured.forEach(l=> l.classList.remove('active-featured'))
+	linkFeatured.forEach(l => l.classList.remove('active-featured'))
 	this.classList.add('active-featured')
 }
-linkFeatured.forEach(l=> l.addEventListener('click', activeFeatured))
+linkFeatured.forEach(l => l.addEventListener('click', activeFeatured))
 
 /*=============== SHOW SCROLL UP ===============*/
 function scrollUp() {
 	const scrollUp = document.querySelector('.scroll-up')
-	if(this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+	if (this.scrollY >= 350) scrollUp.classList.add('show-scroll')
+	else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections =document.querySelectorAll('section[id]')
+const sections = document.querySelectorAll('section[id]')
 
 function scrollActive() {
 	const scrollY = window.pageYOffset
@@ -91,10 +100,14 @@ function scrollActive() {
 		const sectionTop = current.offsetTop - 58
 		const sectionId = current.getAttribute('id')
 
-		if(scrollY > sectionTop && scrollY <=sectionTop + sectionHeight) {
-			document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+		if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+			document
+				.querySelector('.nav__menu a[href*=' + sectionId + ']')
+				.classList.add('active-link')
 		} else {
-			document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+			document
+				.querySelector('.nav__menu a[href*=' + sectionId + ']')
+				.classList.remove('active-link')
 		}
 	})
 }
@@ -108,14 +121,18 @@ const sr = ScrollReveal({
 	delay: 400,
 	// reset: true
 })
-sr.reveal('.home__title, .popular__container, .features__img, .featured__filters')
-sr.reveal('.home__subtitle', {delay: 500})
-sr.reveal('.home__elec', {delay: 600})
-sr.reveal('.home__img', {delay: 800})
-sr.reveal('.home__car-data', {delay: 900, interval: 100, origin: 'button'})
-sr.reveal('.home__btn', {delay: 1000, origin: 'button'})
-sr.reveal('.about__group, .offer__data', {origin: 'left'})
+sr.reveal(
+	'.home__title, .popular__container, .features__img, .featured__filters'
+)
+sr.reveal('.home__subtitle', { delay: 500 })
+sr.reveal('.home__elec', { delay: 600 })
+sr.reveal('.home__img', { delay: 800 })
+sr.reveal('.home__car-data', { delay: 900, interval: 100, origin: 'button' })
+sr.reveal('.home__btn', { delay: 1000, origin: 'button' })
+sr.reveal('.about__group, .offer__data', { origin: 'left' })
 sr.reveal('.about__data, .offer__img', { origin: 'right' })
-sr.reveal('.features__map', {delay: 600, origin: 'bottom'})
-sr.reveal('.features__card', {interval: 300})
-sr.reveal('.featured__card, .logos__content, .footer__content', {interval: 100})
+sr.reveal('.features__map', { delay: 600, origin: 'bottom' })
+sr.reveal('.features__card', { interval: 300 })
+sr.reveal('.featured__card, .logos__content, .footer__content', {
+	interval: 100,
+})
