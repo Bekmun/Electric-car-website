@@ -307,6 +307,7 @@ img {
 /* Active link */
 .active-link {
 	color: var(--first-color);
+	cursor: default;
 }
 
 /*=============== HOME ===============*/
